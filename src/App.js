@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import { CssBaseline } from '@material-ui/core';
 import Header from './components/Header/Header';
+import SectionSGP from './components/SectionSGP/SectionSGP';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,7 @@ export default function App() {
     <div className={classes.root}>
       <CssBaseline />
       <Header />
+      <SectionSGP />
     </div>
   );
 }
