@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Collapse } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -30,33 +31,36 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SGPCard({ SGPInfo }) {
+export default function SGPCard({ SGPInfo, checked }) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={SGPInfo.imageUrl}
-        title="Contemplative Reptile"
-      />
-      <CardContent>
-        <Typography
-          gutterBottom variant="h5"
-          component="h2"
-          className={classes.title}
-        >
-          {SGPInfo.title}
-        </Typography>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          component="p"
-          className={classes.desc}
-        >
-          {SGPInfo.desc}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}
+    >
+      <Card className={classes.root}>
+        <CardMedia
+          className={classes.media}
+          image={SGPInfo.imageUrl}
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography
+            gutterBottom variant="h5"
+            component="h2"
+            className={classes.title}
+          >
+            {SGPInfo.title}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={classes.desc}
+          >
+            {SGPInfo.desc}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Collapse>
   );
 }
